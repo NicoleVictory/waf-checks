@@ -24,3 +24,5 @@ def aws_regions(profile=None):
 
     data = aws_json(base)
     return [r["RegionName"] for r in data.get("Regions", [])]
+
+
