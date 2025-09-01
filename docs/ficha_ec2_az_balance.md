@@ -18,7 +18,7 @@
     5. Verificar desequilíbrio (se mais de 50% ou menos de 10% das instâncias estiverem na mesma AZ)
     6. Registrar as descobertas
 
-# Remediação
+### Remediação
     Configure seus Auto Scaling Groups (ASG) para abranger múltiplas Availability Zones. Garanta que ele esteja configurado com uma lista de todas as AZs desejadas. Quando o ASG precisar lançar novas instâncias, ele as distribuirá automaticamente por essas zonas, mantendo uma carga de trabalho equilibrada.
 
 ## [EN]
