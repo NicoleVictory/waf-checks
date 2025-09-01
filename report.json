@@ -1,0 +1,53 @@
+{
+  "generated_at": "2025-09-01T01:04:25.171980Z",
+  "summary": {
+    "Security Groups - Specific Ports Unrestricted": {
+      "findings": 1,
+      "status": "noncompliant"
+    },
+    "Amazon EC2 Availability Zone Balance": {
+      "findings": 1,
+      "status": "noncompliant"
+    },
+    "Large Number of EC2 Security Group Rules Applied to an Instance": {
+      "findings": 1,
+      "status": "noncompliant"
+    }
+  },
+  "details": {
+    "Security Groups - Specific Ports Unrestricted": {
+      "control": "Security Groups - Specific Ports Unrestricted",
+      "findings": [
+        {
+          "Region": "us-west-1",
+          "SecurityGroup": "sg-0bab997a7b4fbc237",
+          "Port": 22,
+          "Issue": "Unrestricted IPv4"
+        }
+      ]
+    },
+    "Amazon EC2 Availability Zone Balance": {
+      "control": "Amazon EC2 Availability Zone Balance",
+      "findings": [
+        {
+          "Region": "us-west-1",
+          "AZ": "us-west-1c",
+          "Instances": 2,
+          "Details": "2 out of 3 instances (66.7%)",
+          "Issue": "AZ imbalance"
+        }
+      ]
+    },
+    "Large Number of EC2 Security Group Rules Applied to an Instance": {
+      "control": "Large Number of EC2 Security Group Rules Applied to an Instance",
+      "findings": [
+        {
+          "Region": "us-west-1",
+          "InstanceId": "i-0886c1096d32959af",
+          "TotalRules": 11,
+          "Issue": "Too many SG rules"
+        }
+      ]
+    }
+  }
+}

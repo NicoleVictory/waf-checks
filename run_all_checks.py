@@ -1,9 +1,12 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), ""))
+
 import argparse, json, subprocess, sys, datetime
 
 CHECKS = [
     "checks/check_sg_unrestricted.py",
     "checks/check_ec2_az_balance.py",
-    "checks/check_large_sg_rules.py"
+    "checks/check_ec2_sg_rules.py"
 ]
 
 def main():
@@ -49,6 +52,8 @@ def main():
     }
 
     print(json.dumps(report, indent=2))
+    with open("report.json", "w") as json_file:
+        json.dump(report, json_file, indent=2)
     sys.exit(rc)
 
 if __name__ == "__main__":

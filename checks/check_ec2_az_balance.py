@@ -1,3 +1,6 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import argparse, json, sys
 from utils.utils import aws_json, aws_regions
 
@@ -23,11 +26,12 @@ def run_check(regions, profile=None):
         for az in set(az_list):
             cnt = az_list.count(az)
             ratio = cnt / total
-            if ratio > 0.5 or ratio < 0.1:
+            if (ratio > 0.5 or ratio < 0.1) and total !=1:
                 findings.append({
                     "Region": reg,
                     "AZ": az,
                     "Instances": cnt,
+                    "Details": f"{cnt} out of {total} instances ({ratio:.1%})",
                     "Issue": "AZ imbalance"
                 })
     return {"control": "Amazon EC2 Availability Zone Balance", "findings": findings}
